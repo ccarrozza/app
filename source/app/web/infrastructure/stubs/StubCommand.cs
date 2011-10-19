@@ -11,7 +11,7 @@ namespace app.web.infrastructure.stubs
             this.handle = can_handle;
         }
 
-        public StubCommand():this(true)
+        public StubCommand():this(false)
         {
         }
 

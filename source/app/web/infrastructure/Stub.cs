@@ -2,9 +2,9 @@
 {
     public class Stub
     {
-        public static ICreateRequests with<T>()
+        public static TheStub with<TheStub>() where TheStub : new()
         {
-            return new T();
+            return new TheStub();
         }
     }
 }

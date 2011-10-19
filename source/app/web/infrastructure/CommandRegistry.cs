@@ -9,7 +9,7 @@ namespace app.web.infrastructure
         IEnumerable<IProcessOneSpecificTypeOfRequest> all_the_commands;
         IProcessOneSpecificTypeOfRequest command_to_use_when_a_command_cant_be_found;
 
-        public CommandRegistry():this(new StubSetOfCommands(),new StubCommand(false))
+        public CommandRegistry():this(Stub.with<StubSetOfCommands>(),Stub.with<StubCommand>())
         {
         }
 
