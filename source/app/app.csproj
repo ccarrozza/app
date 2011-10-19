@@ -81,6 +81,7 @@
     <Compile Include="IMakeCalculations.cs" />
     <Compile Include="MessageGenerator.cs" />
     <Compile Include="web\infrastructure\ASPHandler.cs" />
+    <Compile Include="web\infrastructure\CommandRegistry.cs" />
     <Compile Include="web\infrastructure\FrontController.cs" />
     <Compile Include="web\infrastructure\IContainRequestDetails.cs" />
     <Compile Include="web\infrastructure\ICreateRequests.cs" />

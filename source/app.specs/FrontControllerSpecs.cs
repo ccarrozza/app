@@ -20,6 +20,7 @@ namespace app.specs
             Establish c = () =>
             {
                 command_registry = depends.on<IFindCommandsThatCanProcessRequests>();
+
                 request = fake.an<IContainRequestDetails>();
                 command_that_can_process_specific_type_of_request = fake.an<IProcessOneSpecificTypeOfRequest>();
 

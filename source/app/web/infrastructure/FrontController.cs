@@ -2,9 +2,16 @@
 {
     public class FrontController : IProcessRequests
     {
-        public void process(IContainRequestDetails a_new_request)
+        IFindCommandsThatCanProcessRequests command_registry;
+
+        public FrontController(IFindCommandsThatCanProcessRequests command_registry)
         {
-            throw new System.NotImplementedException();
+            this.command_registry = command_registry;
+        }
+
+        public void process(IContainRequestDetails request)
+        {
+            command_registry.get_the_command_that_can_process(request).process(request);
         }
     }
 }
