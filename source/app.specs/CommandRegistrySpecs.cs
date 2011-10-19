@@ -25,15 +25,14 @@ namespace app.specs
                 Establish c = () =>
                 {
                     all_the_commands = Enumerable.Range(1,100).Select(x => fake.an<IProcessOneSpecificTypeOfRequest>()).ToList();
+                    depends.on<IEnumerable<IProcessOneSpecificTypeOfRequest>>(all_the_commands);
+
                     request = fake.an<IContainRequestDetails>();
                     the_command_that_can_process_the_request = fake.an<IProcessOneSpecificTypeOfRequest>();
 
-
+                    all_the_commands.Add(the_command_that_can_process_the_request);
                     the_command_that_can_process_the_request.setup(x => x.can_handle(request)).Return(true);
 
-                    all_the_commands.Add(the_command_that_can_process_the_request);
-
-                    depends.on<IEnumerable<IProcessOneSpecificTypeOfRequest>>(all_the_commands);
                 };
 
                 Because b = () =>
