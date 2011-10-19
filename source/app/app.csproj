@@ -79,14 +79,19 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="IMakeCalculations.cs" />
+    <Compile Include="tasks\IFindDepartments.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartments.cs" />
     <Compile Include="web\infrastructure\aspnet\ASPHandler.cs" />
     <Compile Include="web\infrastructure\CommandRegistry.cs" />
     <Compile Include="web\infrastructure\FrontController.cs" />
     <Compile Include="web\infrastructure\IContainRequestDetails.cs" />
     <Compile Include="web\infrastructure\ICreateRequests.cs" />
+    <Compile Include="web\infrastructure\IEncapsulateUserFunctionality.cs" />
     <Compile Include="web\infrastructure\IFindCommandsThatCanProcessRequests.cs" />
     <Compile Include="web\infrastructure\IProcessOneSpecificTypeOfRequest.cs" />
     <Compile Include="web\infrastructure\IProcessRequests.cs" />
+    <Compile Include="web\infrastructure\RequestCommand.cs" />
+    <Compile Include="web\infrastructure\RequestCriteria.cs" />
     <Compile Include="web\infrastructure\Stub.cs" />
     <Compile Include="web\infrastructure\stubs\StubCommand.cs" />
     <Compile Include="web\infrastructure\stubs\StubRequestFactory.cs" />

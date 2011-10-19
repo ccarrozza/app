@@ -1,8 +1,7 @@
 ﻿namespace app.web.infrastructure
 {
-    public interface IProcessOneSpecificTypeOfRequest
+    public interface IProcessOneSpecificTypeOfRequest : IEncapsulateUserFunctionality
     {
-        void process(IContainRequestDetails request);
         bool can_handle(IContainRequestDetails request);
     }
 }
