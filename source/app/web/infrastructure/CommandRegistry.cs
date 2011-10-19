@@ -18,7 +18,7 @@ namespace app.web.infrastructure
         {
             IEnumerable<IProcessOneSpecificTypeOfRequest> possible_commands =
                 all_the_commands.Where(x => x.can_handle(request));
-            if (possible_commands.Count() == 0l)
+            if (possible_commands.Count() == 0)
                 return command_to_use_when_a_command_cant_be_found;
             return possible_commands.First();
         }
