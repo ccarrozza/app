@@ -2,6 +2,9 @@
 {
     public class Stub
     {
-         
+        public static ICreateRequests with<T>()
+        {
+            return new T();
+        }
     }
 }
