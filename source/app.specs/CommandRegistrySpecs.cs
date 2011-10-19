@@ -48,6 +48,32 @@ namespace app.specs
                 static IContainRequestDetails request;
                 static IList<IProcessOneSpecificTypeOfRequest> all_the_commands;
             }
+
+            public class and_it_does_not_have_the_command:when_finding_a_command_that_can_process_a_request
+            {
+                Establish c = () =>
+                {
+                    all_the_commands = Enumerable.Range(1,100).Select(x => fake.an<IProcessOneSpecificTypeOfRequest>()).ToList();
+
+                    the_special_case = depends.on<IProcessOneSpecificTypeOfRequest>();
+                    depends.on<IEnumerable<IProcessOneSpecificTypeOfRequest>>(all_the_commands);
+
+                    request = fake.an<IContainRequestDetails>();
+                };
+
+                Because b = () =>
+                    result = sut.get_the_command_that_can_process(request);
+
+
+                It should_return_the_special_case = () =>
+                    result.ShouldEqual(the_special_case);
+
+
+                static IProcessOneSpecificTypeOfRequest result;
+                static IContainRequestDetails request;
+                static IList<IProcessOneSpecificTypeOfRequest> all_the_commands;
+                static IProcessOneSpecificTypeOfRequest the_special_case;
+            }
         }
     }
 }
