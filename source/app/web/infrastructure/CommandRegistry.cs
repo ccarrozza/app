@@ -16,7 +16,11 @@ namespace app.web.infrastructure
 
         public IProcessOneSpecificTypeOfRequest get_the_command_that_can_process(IContainRequestDetails request)
         {
-            return all_the_commands.First(x => x.can_handle(request));
+            IEnumerable<IProcessOneSpecificTypeOfRequest> possible_commands =
+                all_the_commands.Where(x => x.can_handle(request));
+            if (possible_commands.Count() == 0l)
+                return command_to_use_when_a_command_cant_be_found;
+            return possible_commands.First();
         }
     }
 }
