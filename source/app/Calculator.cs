@@ -7,10 +7,12 @@ namespace app
     public class Calculator
     {
         IDbConnection connection;
+        IDbCommand command;
 
-        public Calculator(IDbConnection connection)
+        public Calculator(IDbConnection connection, IDbCommand command)
         {
             this.connection = connection;
+            this.command = command;
         }
 
         public int add(int first, int second)
@@ -18,6 +20,8 @@ namespace app
             ensure_all_are_positive(first, second);
 
             connection.Open();
+
+            command.ExecuteNonQuery();
 
             return first + second;
         }
