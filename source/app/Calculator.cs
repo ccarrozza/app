@@ -6,7 +6,7 @@ using System.Threading;
 
 namespace app
 {
-    public class Calculator
+    public class Calculator : IMakeCalculations
     {
         IDbConnection connection;
 

@@ -12,7 +12,7 @@ namespace app.specs
 {
     public class CalculatorSpecs
     {
-        public class concern : Observes<Calculator>
+        public class concern : Observes<IMakeCalculations,Calculator>
         {
         }
 
