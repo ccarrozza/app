@@ -79,8 +79,7 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="IMakeCalculations.cs" />
-    <Compile Include="MessageGenerator.cs" />
-    <Compile Include="web\infrastructure\ASPHandler.cs" />
+    <Compile Include="web\infrastructure\aspnet\ASPHandler.cs" />
     <Compile Include="web\infrastructure\CommandRegistry.cs" />
     <Compile Include="web\infrastructure\FrontController.cs" />
     <Compile Include="web\infrastructure\IContainRequestDetails.cs" />
@@ -88,7 +87,10 @@
     <Compile Include="web\infrastructure\IFindCommandsThatCanProcessRequests.cs" />
     <Compile Include="web\infrastructure\IProcessOneSpecificTypeOfRequest.cs" />
     <Compile Include="web\infrastructure\IProcessRequests.cs" />
-    <Compile Include="web\infrastructure\NullRequest.cs" />
+    <Compile Include="web\infrastructure\Stub.cs" />
+    <Compile Include="web\infrastructure\stubs\StubCommand.cs" />
+    <Compile Include="web\infrastructure\stubs\StubRequestFactory.cs" />
+    <Compile Include="web\infrastructure\stubs\StubSetOfCommands.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

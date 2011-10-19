@@ -4,6 +4,10 @@
     {
         IFindCommandsThatCanProcessRequests command_registry;
 
+        public FrontController():this(new CommandRegistry())
+        {
+        }
+
         public FrontController(IFindCommandsThatCanProcessRequests command_registry)
         {
             this.command_registry = command_registry;

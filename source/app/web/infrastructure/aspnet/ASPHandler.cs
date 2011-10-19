@@ -1,11 +1,16 @@
 ﻿using System.Web;
+using app.web.infrastructure.stubs;
 
-namespace app.web.infrastructure
+namespace app.web.infrastructure.aspnet
 {
     public class ASPHandler : IHttpHandler
     {
         IProcessRequests front_controller;
         ICreateRequests request_factory;
+
+        public ASPHandler():this(new FrontController(),Stub.with<StubRequestFactory>())
+        {
+        }
 
         public ASPHandler(IProcessRequests front_controller, ICreateRequests request_factory)
         {

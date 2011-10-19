@@ -2,6 +2,7 @@
 using Machine.Specifications;
 using app.specs.utility;
 using app.web.infrastructure;
+using app.web.infrastructure.aspnet;
 using developwithpassion.specifications.extensions;
 using developwithpassion.specifications.rhinomocks;
 
