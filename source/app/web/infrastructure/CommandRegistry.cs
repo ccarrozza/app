@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace app.web.infrastructure
 {
@@ -13,7 +14,7 @@ namespace app.web.infrastructure
 
         public IProcessOneSpecificTypeOfRequest get_the_command_that_can_process(IContainRequestDetails request)
         {
-            throw new System.NotImplementedException();
+            return all_the_commands.First(x => x.can_handle(request));
         }
     }
 }
