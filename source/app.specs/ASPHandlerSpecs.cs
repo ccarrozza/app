@@ -1,22 +1,20 @@
-﻿ using System.Web;
- using Machine.Specifications;
- using app.specs.utility;
- using app.web.infrastructure;
- using developwithpassion.specifications.rhinomocks;
- using developwithpassion.specifications.extensions;
+﻿using System.Web;
+using Machine.Specifications;
+using app.specs.utility;
+using app.web.infrastructure;
+using developwithpassion.specifications.extensions;
+using developwithpassion.specifications.rhinomocks;
 
 namespace app.specs
-{  
-    [Subject(typeof(ASPHandler))]  
+{
+    [Subject(typeof(ASPHandler))]
     public class ASPHandlerSpecs
     {
         public abstract class concern : Observes<IHttpHandler,
                                             ASPHandler>
         {
-        
         }
 
-   
         public class when_processing_an_incoming_http_context : concern
         {
             Establish c = () =>
@@ -25,8 +23,8 @@ namespace app.specs
                 request_factory = depends.on<ICreateRequests>();
 
                 original_http_context = ObjectFactory.web.create_http_context();
-                a_new_request = new object();
 
+                a_new_request = fake.an<IContainRequestDetails>();
 
                 request_factory.setup(x => x.create_request_from(original_http_context)).Return(a_new_request);
             };
@@ -38,7 +36,7 @@ namespace app.specs
                 front_controller.received(x => x.process(a_new_request));
 
             static IProcessRequests front_controller;
-            static object a_new_request;
+            static IContainRequestDetails a_new_request;
             static HttpContext original_http_context;
             static ICreateRequests request_factory;
         }

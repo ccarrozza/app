@@ -1,12 +1,11 @@
-﻿using System;
-using System.Web;
+﻿using System.Web;
 
 namespace app.web.infrastructure
 {
     public class ASPHandler : IHttpHandler
     {
         IProcessRequests front_controller;
-        private ICreateRequests request_factory;
+        ICreateRequests request_factory;
 
         public ASPHandler(IProcessRequests front_controller, ICreateRequests request_factory)
         {
@@ -14,16 +13,14 @@ namespace app.web.infrastructure
             this.request_factory = request_factory;
         }
 
-        public void ProcessRequest(HttpContext httpContext)
+        public void ProcessRequest(HttpContext http_context)
         {
-            object new_request = request_factory.create_request_from(httpContext);
-            front_controller.process(new_request);
+            front_controller.process(request_factory.create_request_from(http_context));
         }
 
         public bool IsReusable
         {
-            get { throw new System.NotImplementedException(); }
+            get { return true; }
         }
     }
-
 }
