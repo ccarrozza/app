@@ -51,7 +51,6 @@
   <ItemGroup>
     <None Include="build.bat" />
     <None Include="build\configuration\db.rb" />
-    <None Include="build\configuration\db_dev.rb" />
     <None Include="build\configuration\git.rb" />
     <None Include="build\configuration\machine_specs.rb" />
     <None Include="build\configuration\project.rb" />
