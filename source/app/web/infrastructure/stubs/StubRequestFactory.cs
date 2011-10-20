@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using app.models;
 
 namespace app.web.infrastructure.stubs
 {
@@ -11,6 +12,11 @@ namespace app.web.infrastructure.stubs
 
         class StubRequest : IContainRequestDetails
         {
+            public InputModel map<InputModel>()
+            {
+                object department = new DepartmentItem();
+                return (InputModel) department;
+            }
         }
     }
 }
