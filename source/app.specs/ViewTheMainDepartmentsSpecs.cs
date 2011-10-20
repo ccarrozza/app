@@ -1,4 +1,6 @@
-﻿ using Machine.Specifications;
+﻿ using System.Collections.Generic;
+ using Machine.Specifications;
+ using app.models;
  using app.tasks;
  using app.web.application.catalogbrowsing;
  using app.web.infrastructure;
@@ -23,16 +25,24 @@ namespace app.specs
             {
                 request = fake.an<IContainRequestDetails>();
                 department_repository = depends.on<IFindDepartments>();
+                report_engine = depends.on<IDisplayInformation>();
+                the_main_departments = new List<DepartmentItem> {new DepartmentItem()};
+
+                department_repository.setup(x => x.get_the_main_departments()).Return(the_main_departments);
             };
 
             Because b = () =>
                 sut.process(request);
 
-            It should_get_the_main_departments = () =>
-                department_repository.received(x => x.get_the_main_departments());
+
+            It should_tell_the_report_engine_to_display_the_departments = () =>
+                report_engine.received(x => x.display(the_main_departments));
+
 
             static IFindDepartments department_repository;
             static IContainRequestDetails request;
+            static IDisplayInformation report_engine;
+            static IEnumerable<DepartmentItem> the_main_departments;
         }
     }
 }

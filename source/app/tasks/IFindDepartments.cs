@@ -1,7 +1,10 @@
-﻿namespace app.tasks
+﻿using System.Collections.Generic;
+using app.models;
+
+namespace app.tasks
 {
     public interface IFindDepartments
     {
-        void get_the_main_departments();
+        IEnumerable<DepartmentItem> get_the_main_departments();
     }
 }
